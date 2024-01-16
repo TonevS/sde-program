@@ -1,5 +1,11 @@
 package products;
 
-public interface Card {
-    
+import enums.FrameType;
+
+public abstract class Card {
+    FrameType frameType;
+
+    String desc;
+
+    public abstract String toString();
 }
