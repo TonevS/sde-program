@@ -1,6 +1,6 @@
 package enums;
 
-public enum Trap_Cards {
+public enum TrapRace {
     Normal,
     Continuous,
     Counter

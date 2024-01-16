@@ -1,6 +1,6 @@
 package enums;
 
-public enum Spell_Cards {
+public enum SpellRace {
     Normal,
     Field,
     Equip,
