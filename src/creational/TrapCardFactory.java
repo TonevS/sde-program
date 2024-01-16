@@ -1,5 +1,10 @@
 package creational;
 
-public class TrapCardFactory implements CardFactory{
+import products.Card;
 
+public class TrapCardFactory implements CardFactory{
+    @Override
+    public Card createCard() {
+        return new TrapCard();
+    }
 }

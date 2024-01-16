@@ -1,5 +1,7 @@
 package creational;
 
-public interface CardFactory {
+import products.Card;
 
+public interface CardFactory {
+    public Card createCard();
 }
