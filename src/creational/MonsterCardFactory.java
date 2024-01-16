@@ -6,7 +6,7 @@ import products.MonsterCard;
 
 public class MonsterCardFactory implements CardFactory{
     @Override
-    public Card createCard(JSONObject card) {
-        return new MonsterCard(card);
+    public Card createCard() {
+        return new MonsterCard();
     }
 }
