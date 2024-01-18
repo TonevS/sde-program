@@ -9,6 +9,6 @@ import products.MonsterCard;
 public class MonsterCardFactory implements CardFactory{
     @Override
     public Card createCard() {
-        return new MonsterCard(Attributes.DARK, MonsterRace.Dragon, "This is a monster card");
+        return new MonsterCard(Attributes.DARK, MonsterRace.DRAGON, "This is a monster card");
     }
 }

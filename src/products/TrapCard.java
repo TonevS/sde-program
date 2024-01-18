@@ -9,7 +9,7 @@ public class TrapCard extends Card{
     public TrapCard(TrapRace trapRace, String desc) {
         this.trapRace = trapRace;
         this.desc = desc;
-        this.frameType = FrameType.Trap;
+        this.frameType = FrameType.TRAP;
     }
 
     @Override

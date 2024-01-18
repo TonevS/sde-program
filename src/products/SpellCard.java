@@ -9,7 +9,7 @@ public class SpellCard extends Card{
     public SpellCard(SpellRace spellRace, String desc) {
         this.spellRace = spellRace;
         this.desc = desc;
-        this.frameType = FrameType.Spell;
+        this.frameType = FrameType.SPELL;
     }
 
     @Override

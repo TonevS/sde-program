@@ -12,7 +12,7 @@ public class MonsterCard extends Card{
         this.attribute = attribute;
         this.monsterRace = monsterRace;
         this.desc = desc;
-        this.frameType = FrameType.Normal;
+        this.frameType = FrameType.NORMAL;
     }
     @Override
     public String toString() {

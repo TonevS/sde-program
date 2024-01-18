@@ -7,6 +7,6 @@ import products.TrapCard;
 public class TrapCardFactory implements CardFactory{
     @Override
     public Card createCard() {
-        return new TrapCard(TrapRace.Counter, "This is a trap card");
+        return new TrapCard(TrapRace.COUNTER, "This is a trap card");
     }
 }
