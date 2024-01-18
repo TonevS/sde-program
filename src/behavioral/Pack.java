@@ -1,21 +1,34 @@
 package behavioral;
 
+import creational.CardFactory;
+import creational.MonsterCardFactory;
+import creational.SpellCardFactory;
+import creational.TrapCardFactory;
+import enums.Attributes;
+import helpers.ApiCaller;
+import org.json.JSONObject;
 import products.Card;
-import products.MonsterCard;
+
+import java.util.ArrayList;
 
 public class Pack {
     PackState state;
-    Card[] cards = new Card[5];
+    CardFactory cf;
+    ArrayList<Card> cards;
 
+    ApiCaller apiCaller = new ApiCaller();
     public Pack() {
-
+        this.state = new EmptyPack();
     }
 
-    public changeState(Pack pack) {
-        if (pack.cards.length == 0) {
-            this.state = new EmptyPack(pack);
-        } else {
-            this.state = new NewPack(pack);
-        }
+    public void fillPack() {
+        this.state.fill();
+    }
+
+    public void drawCard() {
+        this.state.draw();
+    }
+    public void changeState(PackState state) {
+        this.state = state;
     }
 }

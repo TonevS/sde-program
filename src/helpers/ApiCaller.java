@@ -1,3 +1,5 @@
+package helpers;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpRequest;
@@ -7,7 +9,7 @@ import java.net.http.HttpClient;
 import org.json.JSONObject;
 
 public class ApiCaller {
-    ApiCaller() {
+    public ApiCaller() {
     }
     public JSONObject getCardFromApi() {
         HttpRequest request = HttpRequest.newBuilder()
