@@ -10,6 +10,9 @@ public class MonsterCardFactory implements CardFactory{
 
     @Override
     public Card createCard(JSONObject json) {
-        return null;
+
+
+
+        return new MonsterCard(Attributes.DARK, MonsterRace.DRAGON, "This is a monster card");
     }
 }

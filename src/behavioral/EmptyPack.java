@@ -8,11 +8,16 @@ import enums.Attributes;
 import org.json.JSONObject;
 import products.Card;
 
-public class EmptyPack implements PackState{
-    Pack pack;
+public class EmptyPack extends PackState{
+
+    EmptyPack(Pack pack) {
+        super(pack);
+    }
+
     @Override
     public void fill() {
-        pack.changeState(new NewPack());
+        System.out.println("Filling pack...");
+        pack.changeState(new NewPack(pack));
     }
 
     @Override
