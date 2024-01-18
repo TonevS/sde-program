@@ -38,7 +38,7 @@ public class Main {
 
         CardFactory cf = new MonsterCardFactory();
         card = cf.createCard();
-        card.drawRectangle();
+        card.createCard();
 
         cf = new SpellCardFactory();
 

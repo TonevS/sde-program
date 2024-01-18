@@ -4,20 +4,22 @@ import enums.Attributes;
 import enums.FrameType;
 import enums.SpellRace;
 
-public class SpellCard extends Card{
+public class SpellCard extends Card {
     private SpellRace spellRace;
 
-    public SpellCard(SpellRace spellRace, String desc) {
-        super("spell", Attributes.valueOf("FIRE"), 1, 1500, 2000);
+    public SpellCard(Attributes attribute, SpellRace spellRace, String desc) {
+        this.name = "spell";
+        this.attribute = attribute;
+        this.level = 1;
+        this.atk = 1500;
+        this.def = 2000;
         this.spellRace = spellRace;
         this.desc = desc;
         this.frameType = FrameType.Spell;
     }
 
     @Override
-    public String toString() {
-        return "SpellCard{" +
-                "spellRace=" + spellRace +
-                '}';
+    protected void drawBody() {
+        System.out.println("| SpellCard           |");
     }
 }
