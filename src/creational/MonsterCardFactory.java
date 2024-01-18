@@ -14,6 +14,7 @@ public class MonsterCardFactory implements CardFactory{
         return new MonsterCard(
                 json.getString("name"),
                 json.getString("desc"),
+                json.getJSONArray("card_prices").getJSONObject(0).getDouble("amazon_price"),
                 Attributes.findByValue(json.getString("attribute")),
                 MonsterRace.findByValue(json.getString("race")),
                 FrameType.findByValue(json.getString("type")),
