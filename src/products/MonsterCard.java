@@ -9,6 +9,7 @@ public class MonsterCard extends Card{
     private MonsterRace monsterRace;
 
     public MonsterCard(Attributes attribute, MonsterRace monsterRace, String desc) {
+        super("monsters", Attributes.valueOf("DARK"), 4, 2500, 2800);
         this.attribute = attribute;
         this.monsterRace = monsterRace;
         this.desc = desc;
