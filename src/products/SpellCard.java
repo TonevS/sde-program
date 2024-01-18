@@ -4,11 +4,11 @@ import enums.FrameType;
 import enums.SpellRace;
 
 public class SpellCard extends Card{
-    private SpellRace spellRace;
+    private final SpellRace spellRace;
 
-    public SpellCard(SpellRace spellRace, String desc) {
+    public SpellCard(String name, String desc, SpellRace spellRace) {
+        super(name, desc);
         this.spellRace = spellRace;
-        this.desc = desc;
         this.frameType = FrameType.SPELL;
     }
 

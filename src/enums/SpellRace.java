@@ -9,11 +9,21 @@ public enum SpellRace {
     QUICK_PLAY ("Quick-Play"),
     RITUAL ("Ritual");
 
-    private final String race;
-    SpellRace(String race) {
-        this.race = race;
+    private final String value;
+    SpellRace(String value) {
+        this.value = value;
     }
-    public String getRace() {
-        return this.race;
+    public String getValue() {
+        return this.value;
+    }
+    public static SpellRace findByValue(String stringRace) {
+        SpellRace spellRace = null;
+        for (SpellRace race : values()) {
+            if (race.getValue().equalsIgnoreCase(stringRace)) {
+                spellRace = race;
+                break;
+            }
+        }
+        return spellRace;
     }
 }

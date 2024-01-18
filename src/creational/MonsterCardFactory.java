@@ -1,6 +1,7 @@
 package creational;
 
 import enums.Attributes;
+import enums.FrameType;
 import enums.MonsterRace;
 import org.json.JSONObject;
 import products.Card;
@@ -10,9 +11,15 @@ public class MonsterCardFactory implements CardFactory{
 
     @Override
     public Card createCard(JSONObject json) {
-
-
-
-        return new MonsterCard(Attributes.DARK, MonsterRace.DRAGON, "This is a monster card");
+        return new MonsterCard(
+                json.getString("name"),
+                json.getString("desc"),
+                Attributes.findByValue(json.getString("attribute")),
+                MonsterRace.findByValue(json.getString("race")),
+                FrameType.findByValue(json.getString("type")),
+                json.getInt("level"),
+                json.getInt("atk"),
+                json.getInt("def")
+        );
     }
 }

@@ -4,11 +4,11 @@ import enums.FrameType;
 import enums.TrapRace;
 
 public class TrapCard extends Card{
-    private TrapRace trapRace;
+    private final TrapRace trapRace;
 
-    public TrapCard(TrapRace trapRace, String desc) {
+    public TrapCard(String name, String desc, TrapRace trapRace) {
+        super(name, desc);
         this.trapRace = trapRace;
-        this.desc = desc;
         this.frameType = FrameType.TRAP;
     }
 
