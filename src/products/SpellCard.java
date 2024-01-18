@@ -1,25 +1,29 @@
 package products;
 
-import enums.Attributes;
 import enums.FrameType;
 import enums.SpellRace;
 
-public class SpellCard extends Card {
-    private SpellRace spellRace;
+public class SpellCard extends Card{
+    private final SpellRace spellRace;
 
-    public SpellCard(Attributes attribute, SpellRace spellRace, String desc) {
-        this.name = "spell";
-        this.attribute = attribute;
-        this.level = 1;
-        this.atk = 1500;
-        this.def = 2000;
+    public SpellCard(String name, String desc, SpellRace spellRace) {
+        super(name, desc);
         this.spellRace = spellRace;
-        this.desc = desc;
         this.frameType = FrameType.SPELL;
+    }
+
+    @Override
+    protected void drawHeader() {
+
     }
 
     @Override
     protected void drawBody() {
         System.out.println("| SpellCard           |");
+    }
+
+    @Override
+    protected void drawFooter() {
+
     }
 }

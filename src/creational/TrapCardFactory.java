@@ -10,6 +10,10 @@ public class TrapCardFactory implements CardFactory{
 
     @Override
     public Card createCard(JSONObject json) {
-        return null;
+        return new TrapCard(
+                json.getString("name"),
+                json.getString("desc"),
+                TrapRace.findByValue(json.getString("race"))
+        );
     }
 }

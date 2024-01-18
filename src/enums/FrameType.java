@@ -1,27 +1,36 @@
 package enums;
 
 public enum FrameType {
-    NORMAL ("normal"),
-    EFFECT ("effect"),
-    RITUAL ("ritual"),
-    FUSION ("fusion"),
-    SYNCHRO ("synchro"),
-    XYZ ("xyz"),
-    LINK ("link"),
-    NORMAL_PENDULUM ("normal_pendulum"),
-    EFFECT_PENDULUM ("effect_pendulum"),
-    RITUAL_PENDULUM ("ritual_pendulum"),
-    FUSION_PENDULUM ("fusion_pendulum"),
-    SYNCHRO_PENDULUM ("synchro_pendulum"),
-    XYZ_PENDULUM ("xyz_pendulum"),
-    SPELL ("spell"),
-    TRAP ("trap");
-    private final String frameType;
-    FrameType(String frameType) {
-        this.frameType = frameType;
+    NORMAL ("Normal Monster"),
+    EFFECT ("Effect Monster"),
+    RITUAL ("Ritual Monster"),
+    FUSION ("Fusion Monster"),
+    SYNCHRO ("Synchro Monster"),
+    XYZ ("Xyz Monster"),
+    LINK ("Link Monster"),
+    NORMAL_PENDULUM ("Normal Pendulum Monster"),
+    EFFECT_PENDULUM ("Effect Pendulum Monster"),
+    RITUAL_PENDULUM ("Ritual Pendulum Monster"),
+    FUSION_PENDULUM ("Fusion Pendulum Monster"),
+    SYNCHRO_PENDULUM ("Synchro Pendulum Monster"),
+    XYZ_PENDULUM ("Xyz Pendulum Monster"),
+    SPELL ("Spell Card"),
+    TRAP ("Trap Card");
+    private final String value;
+    FrameType(String value) {
+        this.value = value;
     }
-
-    public String getFrameType() {
-        return this.frameType;
+    public String getValue() {
+        return this.value;
+    }
+    public static FrameType findByValue(String stringFrameType) {
+        FrameType frameType = null;
+        for (FrameType frame : values()) {
+            if (frame.getValue().equalsIgnoreCase(stringFrameType)) {
+                frameType = frame;
+                break;
+            }
+        }
+        return frameType;
     }
 }

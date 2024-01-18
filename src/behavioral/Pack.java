@@ -31,4 +31,5 @@ public class Pack {
     public void changeState(PackState state) {
         this.state = state;
     }
+
 }

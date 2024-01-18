@@ -10,6 +10,10 @@ public class SpellCardFactory implements CardFactory{
 
     @Override
     public Card createCard(JSONObject json) {
-        return null;
+        return new SpellCard(
+                json.getString("name"),
+                json.getString("desc"),
+                SpellRace.findByValue(json.getString("race"))
+        );
     }
 }
