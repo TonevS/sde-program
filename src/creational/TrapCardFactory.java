@@ -1,12 +1,14 @@
 package creational;
 
 import enums.TrapRace;
+import org.json.JSONObject;
 import products.Card;
 import products.TrapCard;
 
 public class TrapCardFactory implements CardFactory{
+
     @Override
-    public Card createCard() {
-        return new TrapCard(TrapRace.COUNTER, "This is a trap card");
+    public Card createCard(JSONObject json) {
+        return null;
     }
 }

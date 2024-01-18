@@ -8,12 +8,14 @@ import helpers.ApiCaller;
 public class Main {
     public static void main(String[] args) {
         Pack pack = new Pack();
-        CardFactory cf = new MonsterCardFactory();
-        System.out.println(cf.createCard());
-        cf = new SpellCardFactory();
-        System.out.println(cf.createCard());
-        cf = new TrapCardFactory();
-        System.out.println(cf.createCard());
-
+        pack.fillPack();
+        pack.fillPack();
+        pack.drawCard();
+        pack.drawCard();
+        pack.drawCard();
+        pack.drawCard();
+        pack.drawCard();
+        pack.fillPack();
+        pack.drawCard();
     }
 }

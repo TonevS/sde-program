@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Pack {
     PackState state;
     CardFactory cf;
-    ArrayList<Card> cards;
+    ArrayList<Card> cards = new ArrayList<>();
 
     ApiCaller apiCaller = new ApiCaller();
     public Pack() {
-        this.state = new EmptyPack();
+        this.state = new EmptyPack(this);
     }
 
     public void fillPack() {

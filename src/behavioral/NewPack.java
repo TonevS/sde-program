@@ -2,9 +2,16 @@ package behavioral;
 
 import creational.CardFactory;
 import creational.MonsterCardFactory;
+import helpers.ApiCaller;
 
-public class NewPack implements PackState{
-    Pack pack;
+public class NewPack extends PackState{
+    NewPack(Pack pack) {
+        super(pack);
+        for (int i = 0; i < 5; i++) {
+            pack.cards.add(new MonsterCardFactory().createCard(pack.apiCaller.getCardFromApi()));
+        }
+    }
+
     @Override
     public void fill() {
         System.out.println("This pack isn't empty, you can't fill it");
@@ -12,12 +19,9 @@ public class NewPack implements PackState{
 
     @Override
     public void draw() {
-        if (pack.cards.getFirst() == null) {
-            System.out.println("This pack is empty, you can't draw from it");
-            pack.changeState(new EmptyPack());
-        } else {
-
-
+        System.out.println(pack.cards.removeFirst().toString());
+        if (pack.cards.isEmpty()) {
+            pack.changeState(new EmptyPack(pack));
         }
     }
 }
