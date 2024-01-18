@@ -1,7 +1,10 @@
 package creational;
 
+import enums.Attributes;
+import enums.MonsterRace;
+import org.json.JSONObject;
 import products.Card;
 
 public interface CardFactory {
-    public Card createCard();
+    Card createCard(JSONObject json);
 }
