@@ -13,6 +13,7 @@ public class TrapCardFactory implements CardFactory{
         return new TrapCard(
                 json.getString("name"),
                 json.getString("desc"),
+                json.getJSONArray("card_prices").getJSONObject(0).getDouble("amazon_price"),
                 TrapRace.findByValue(json.getString("race"))
         );
     }

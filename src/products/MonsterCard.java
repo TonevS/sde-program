@@ -11,8 +11,8 @@ public class MonsterCard extends Card{
     private final int atk;
     private final int def;
 
-    public MonsterCard(String name, String desc, Attributes attribute, MonsterRace monsterRace, FrameType frameType, int level, int atk, int def) {
-        super(name, desc);
+    public MonsterCard(String name, String desc, double price, Attributes attribute, MonsterRace monsterRace, FrameType frameType, int level, int atk, int def) {
+        super(name, desc, price);
         this.attribute = attribute;
         this.monsterRace = monsterRace;
         this.level = level;

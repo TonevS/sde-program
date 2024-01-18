@@ -13,6 +13,7 @@ public class SpellCardFactory implements CardFactory{
         return new SpellCard(
                 json.getString("name"),
                 json.getString("desc"),
+                json.getJSONArray("card_prices").getJSONObject(0).getDouble("amazon_price"),
                 SpellRace.findByValue(json.getString("race"))
         );
     }
