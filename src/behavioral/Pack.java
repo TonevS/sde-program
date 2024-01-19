@@ -32,4 +32,11 @@ public class Pack {
         this.state = state;
     }
 
+    public double getCardValue() {
+        return cards.getFirst().getPrice();
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
 }
