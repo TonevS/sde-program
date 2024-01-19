@@ -1,25 +1,29 @@
 package products;
 
-import enums.Attributes;
 import enums.FrameType;
 import enums.TrapRace;
 
-public class TrapCard extends Card {
-    private TrapRace trapRace;
+public class TrapCard extends Card{
+    private final TrapRace trapRace;
 
-    public TrapCard(Attributes attribute, TrapRace trapRace, String desc) {
-        this.name = "trap";
-        this.attribute = attribute;
-        this.level = 6;
-        this.atk = 1000;
-        this.def = 1500;
+    public TrapCard(String name, String desc, double price, TrapRace trapRace) {
+        super(name, desc, price);
         this.trapRace = trapRace;
-        this.desc = desc;
         this.frameType = FrameType.TRAP;
+    }
+
+    @Override
+    protected void drawHeader() {
+
     }
 
     @Override
     protected void drawBody() {
         System.out.println("| TrapCard           |");
+    }
+
+    @Override
+    protected void drawFooter() {
+
     }
 }

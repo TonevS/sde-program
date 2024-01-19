@@ -26,12 +26,21 @@ public enum MonsterRace {
     WINGED_BEAST ("Winged Beast"),
     WYRM ("Wyrm");
 
-    private final String race;
-    MonsterRace(String race) {
-        this.race = race;
+    private final String value;
+    MonsterRace(String value) {
+        this.value = value;
     }
-
-    public String getRace() {
-        return this.race;
+    private String getValue() {
+        return value;
+    }
+    public static MonsterRace findByValue(String stringRace) {
+        MonsterRace monsterRace = null;
+        for (MonsterRace race : values()) {
+            if (race.getValue().equalsIgnoreCase(stringRace)) {
+                monsterRace = race;
+                break;
+            }
+        }
+        return monsterRace;
     }
 }

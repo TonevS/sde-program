@@ -5,11 +5,21 @@ public enum TrapRace {
     CONTINUOUS ("Continuous"),
     COUNTER ("Counter");
 
-    private final String race;
-    TrapRace(String race) {
-        this.race = race;
+    private final String value;
+    TrapRace(String value) {
+        this.value = value;
     }
-    public String getRace() {
-        return this.race;
+    public String getValue() {
+        return this.value;
+    }
+    public static TrapRace findByValue(String stringRace) {
+        TrapRace trapRace = null;
+        for (TrapRace race : values()) {
+            if (race.getValue().equalsIgnoreCase(stringRace)) {
+                trapRace = race;
+                break;
+            }
+        }
+        return trapRace;
     }
 }
