@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Pack {
     PackState state;
-    CardFactory cf;
+    LogTemplate logTemplate;
     ArrayList<Card> cards = new ArrayList<>();
 
     ApiCaller apiCaller = new ApiCaller();

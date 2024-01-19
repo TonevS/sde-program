@@ -3,6 +3,22 @@ package products;
 import enums.FrameType;
 
 public abstract class Card {
+    public FrameType getFrameType() {
+        return frameType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
     FrameType frameType;
     String name;
     String desc;
@@ -12,15 +28,5 @@ public abstract class Card {
         this.desc = desc;
         this.price = price;
     }
-
-    public final void createCard() {
-        drawHeader();
-        drawBody();
-        drawFooter();
-    }
-    protected abstract void drawHeader();
-    protected abstract void drawBody();
-
-    protected abstract void drawFooter();
 
 }

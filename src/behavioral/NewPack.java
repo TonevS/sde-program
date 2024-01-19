@@ -6,6 +6,10 @@ import creational.SpellCardFactory;
 import creational.TrapCardFactory;
 import helpers.ApiCaller;
 import org.json.JSONObject;
+import products.Card;
+import products.MonsterCard;
+import products.SpellCard;
+import products.TrapCard;
 
 public class NewPack extends PackState{
     NewPack(Pack pack) {
@@ -28,7 +32,16 @@ public class NewPack extends PackState{
 
     @Override
     public void draw() {
-        pack.cards.removeFirst().createCard();
+        Card card = pack.cards.removeFirst();
+        if (card instanceof MonsterCard) {
+            pack.logTemplate = new MonsterLogTemplate();
+        } else if (card instanceof SpellCard) {
+            pack.logTemplate = new SpellLogTemplate();
+        } else if (card instanceof TrapCard) {
+            pack.logTemplate = new TrapLogTemplate();
+        }
+        pack.logTemplate.logCard(card);
+
         if (pack.cards.isEmpty()) {
             pack.changeState(new EmptyPack(pack));
         }
