@@ -1,12 +1,5 @@
 package behavioral;
 
-import creational.CardFactory;
-import creational.MonsterCardFactory;
-import creational.SpellCardFactory;
-import creational.TrapCardFactory;
-import enums.Attributes;
-import helpers.ApiCaller;
-import org.json.JSONObject;
 import products.Card;
 import structural.BaseDecorator;
 

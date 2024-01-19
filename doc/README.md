@@ -1,3 +1,5 @@
+### The Program
+For this project we made a Yu-Gi-Oh pack opening game, where you will open packs filled with random cards. Each one of these cards have a certain value, and you as the user have a certain budget. After each pack opening of 5 cards, the cards get sold and if you have enough money to buy another pack of 5 the program will continue. If you're out of money then the program stops, too bad :)
 # Cooperation
 For this project we mostly worked together either pair-programming in person or assigning designated tasks and execute them individually.
 We made a class diagram together before starting to code as show below:
@@ -5,7 +7,6 @@ We made a class diagram together before starting to code as show below:
 ![Class Diagram](/images/diagram.png)
 
 Based on the design patterns we planned on implementing we divided the Design Patterns equally among the two of us.
-
 # Design Patterns Explanation
 
 ## Creational
@@ -122,10 +123,110 @@ public abstract class BaseDecorator implements LogTemplate {
 
 ```
 ### Facade
+We use facade to empty the complexity of our client code, while making it easy to implement our game-like state by just instructing the user on passing commands. It 
+```agsl
+package structural;
+
+import behavioral.Pack;
+
+public class GameFacade {
+private final String name;
+private final Pack pack = new Pack();
+private int attempts = 0;
+private double money = 20;
+private boolean isGameRunning = true;
+public GameFacade(String name) {
+this.name = name;
+startGame(name);
+}
+private void startGame(String name) {
+System.out.println("Welcome to the game, " + name + "!");
+}
+
+    public void doAction(String instruction) {
+        switch (instruction) {
+            case "draw":
+                if (!pack.isEmpty()) {
+                    money = Math.round(money + pack.getCardValue());
+                    attempts++;
+                }
+                pack.drawCard();
+                break;
+            case "fill":
+                if (attempts % 5 == 0) {
+                    money = Math.round(money - 10);
+                }
+                pack.fillPack();
+                break;
+            case "check":
+                System.out.println("You have " + money + " money.");
+                break;
+            case "exit":
+                endGame();
+                break;
+            default:
+                System.out.println("Invalid command.");
+        }
+
+        if (money <= 0) {
+            System.out.println("You have no money left. Game over.");
+            System.out.println("Final score: " +   attempts + " attempts.");
+            endGame();
+        }
+    }
+
+    private void endGame() {
+        System.out.println("Thanks for playing!");
+        isGameRunning = false;
+    }
+
+    public boolean isGameRunning() {
+        return isGameRunning;
+    }
+}
+```
 
 ## Behavioural
 ### State
+By implementing the state design pattern to the pack class we add different behavior on our methods based on the state, helping us easily separate the logic of opening and filling the pack
+```agsl
+package behavioral;
 
+import products.Card;
+import structural.BaseDecorator;
+
+import java.util.ArrayList;
+
+public class Pack {
+    PackState state;
+    LogTemplate logTemplate;
+    BaseDecorator baseDecorator;
+    ArrayList<Card> cards = new ArrayList<>();
+    public Pack() {
+        this.state = new EmptyPack(this);
+    }
+
+    public void fillPack() {
+        this.state.fill();
+    }
+
+    public void drawCard() {
+        this.state.draw();
+    }
+    public void changeState(PackState state) {
+        this.state = state;
+    }
+
+    public double getCardValue() {
+        return cards.getFirst().getPrice();
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
+}
+
+```
 ### Template Method
 This is an interface called LogTemplate.
 ```agsl
