@@ -10,6 +10,7 @@ import products.Card;
 import products.MonsterCard;
 import products.SpellCard;
 import products.TrapCard;
+import structural.BaseDecorator;
 
 public class NewPack extends PackState{
     NewPack(Pack pack) {
@@ -33,6 +34,7 @@ public class NewPack extends PackState{
     @Override
     public void draw() {
         Card card = pack.cards.removeFirst();
+        BaseDecorator decorator =
         if (card instanceof MonsterCard) {
             pack.logTemplate = new MonsterLogTemplate();
         } else if (card instanceof SpellCard) {
