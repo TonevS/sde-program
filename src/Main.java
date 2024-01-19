@@ -10,6 +10,7 @@ import creational.SpellCardFactory;
 import creational.TrapCardFactory;
 import org.json.JSONObject;
 import enums.Attributes;
+import products.Card;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,16 +28,22 @@ public class Main {
         }
         JSONObject json = new JSONObject(response.body());
 
-        for (String key : json.keySet()) {
-            System.out.print(key);
-            System.out.print(" ");
-            System.out.println(json.get(key));
-        }
+//        for (String key : json.keySet()) {
+//            System.out.print(key);
+//            System.out.print(" ");
+//            System.out.println(json.get(key));
+//        }
+
+        Card card;
+
         CardFactory cf = new MonsterCardFactory();
-        System.out.println(cf.createCard());
+        card = cf.createCard();
+        card.createCard();
+
         cf = new SpellCardFactory();
-        System.out.println(cf.createCard());
+
         cf = new TrapCardFactory();
-        System.out.println(cf.createCard());
+
+
     }
 }
