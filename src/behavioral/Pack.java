@@ -8,12 +8,14 @@ import enums.Attributes;
 import helpers.ApiCaller;
 import org.json.JSONObject;
 import products.Card;
+import structural.BaseDecorator;
 
 import java.util.ArrayList;
 
 public class Pack {
     PackState state;
     LogTemplate logTemplate;
+    BaseDecorator baseDecorator;
     ArrayList<Card> cards = new ArrayList<>();
 
     ApiCaller apiCaller = new ApiCaller();

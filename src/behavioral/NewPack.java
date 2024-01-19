@@ -11,6 +11,7 @@ import products.MonsterCard;
 import products.SpellCard;
 import products.TrapCard;
 import structural.BaseDecorator;
+import structural.MonsterDecorator;
 
 public class NewPack extends PackState{
     NewPack(Pack pack) {
@@ -34,15 +35,18 @@ public class NewPack extends PackState{
     @Override
     public void draw() {
         Card card = pack.cards.removeFirst();
-        BaseDecorator decorator =
+
         if (card instanceof MonsterCard) {
             pack.logTemplate = new MonsterLogTemplate();
+            pack.baseDecorator = new MonsterDecorator(pack.logTemplate);
         } else if (card instanceof SpellCard) {
             pack.logTemplate = new SpellLogTemplate();
+            pack.baseDecorator = new MonsterDecorator(pack.logTemplate);
         } else if (card instanceof TrapCard) {
             pack.logTemplate = new TrapLogTemplate();
+            pack.baseDecorator = new MonsterDecorator(pack.logTemplate);
         }
-        pack.logTemplate.logCard(card);
+        pack.baseDecorator.logCard(card);
 
         if (pack.cards.isEmpty()) {
             pack.changeState(new EmptyPack(pack));
