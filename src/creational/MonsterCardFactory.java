@@ -11,6 +11,15 @@ public class MonsterCardFactory implements CardFactory{
 
     @Override
     public Card createCard(JSONObject json) {
+        int level = 0;
+        int def = 0;
+
+        if (!json.isNull("linkval")) {
+            level = json.getInt("linkval");
+        } else {
+            def = json.getInt("def");
+        }
+
         return new MonsterCard(
                 json.getString("name"),
                 json.getString("desc"),
@@ -18,9 +27,9 @@ public class MonsterCardFactory implements CardFactory{
                 Attributes.findByValue(json.getString("attribute")),
                 MonsterRace.findByValue(json.getString("race")),
                 FrameType.findByValue(json.getString("type")),
-                json.getInt("level"),
+                level,
                 json.getInt("atk"),
-                json.getInt("def")
+                def
         );
     }
 }

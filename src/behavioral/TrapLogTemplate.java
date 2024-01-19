@@ -11,7 +11,7 @@ public class TrapLogTemplate implements LogTemplate {
     public void drawHeader(Card card) {
         System.out.println("+------------------------+");
         System.out.printf("| %-41s %-4s |\n", card.getName(), "TRAP");
-        System.out.printf("| %-36s %-4s |\n", "", "[Trap Card]" + convertToSymbol(((TrapCard) card).getTrapRace()));
+        System.out.printf("| %-33s %-4s |\n", "", "[Trap Card]" + convertToSymbol(((TrapCard) card).getTrapRace()));
 
         for (int i = 0; i < 10; i++) {
             System.out.println("+------------------------------------------------+");

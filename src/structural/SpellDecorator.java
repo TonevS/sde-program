@@ -10,7 +10,7 @@ public class SpellDecorator extends BaseDecorator{
 
     @Override
     public void drawHeader(Card card) {
-        System.out.println("\u001B[36m");
+        System.out.print("\u001B[36m");
         super.drawHeader(card);
     }
 
@@ -22,6 +22,6 @@ public class SpellDecorator extends BaseDecorator{
     @Override
     public void drawFooter(Card card) {
         super.drawFooter(card);
-        System.out.println("\u001B[36m");
+        System.out.print("\033[0m");
     }
 }

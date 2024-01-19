@@ -18,7 +18,6 @@ public class MonsterLogTemplate implements LogTemplate {
     @Override
     public void drawBody(Card card) {
         System.out.println("| MonsterCard         |");
-
     }
 
     @Override

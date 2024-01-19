@@ -17,8 +17,6 @@ public class Pack {
     LogTemplate logTemplate;
     BaseDecorator baseDecorator;
     ArrayList<Card> cards = new ArrayList<>();
-
-    ApiCaller apiCaller = new ApiCaller();
     public Pack() {
         this.state = new EmptyPack(this);
     }

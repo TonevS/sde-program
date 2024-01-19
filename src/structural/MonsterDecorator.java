@@ -23,6 +23,6 @@ public class MonsterDecorator extends BaseDecorator{
     @Override
     public void drawFooter(Card card) {
         super.drawFooter(card);
-        System.out.print("\u001B[31m");
+        System.out.print("\033[0m");
     }
 }

@@ -9,7 +9,16 @@ import java.net.http.HttpClient;
 import org.json.JSONObject;
 
 public class ApiCaller {
-    public ApiCaller() {
+    private static ApiCaller instance;
+
+    private ApiCaller() {
+    }
+
+    public static ApiCaller getInstance() {
+        if (instance == null) {
+            instance = new ApiCaller();
+        }
+        return instance;
     }
     public JSONObject getCardFromApi() {
         HttpRequest request = HttpRequest.newBuilder()

@@ -11,7 +11,7 @@ public class SpellLogTemplate implements LogTemplate {
     public void drawHeader(Card card) {
         System.out.println("+------------------------+");
         System.out.printf("| %-41s %-4s |\n",  card.getName(), " ");
-        System.out.printf("| %-36s %-4s |\n", "", "[Spell Card] " + convertToSymbol(((SpellCard) card).getSpellRace()));
+        System.out.printf("| %-33s %-4s |\n", "", "[Spell Card] " + convertToSymbol(((SpellCard) card).getSpellRace()));
 
         for (int i = 0; i < 10; i++) {
             System.out.println("+------------------------------------------------+");

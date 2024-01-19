@@ -12,12 +12,15 @@ import products.SpellCard;
 import products.TrapCard;
 import structural.BaseDecorator;
 import structural.MonsterDecorator;
+import structural.SpellDecorator;
+import structural.TrapDecorator;
 
 public class NewPack extends PackState{
     NewPack(Pack pack) {
         super(pack);
+        ApiCaller apiCaller = ApiCaller.getInstance();
         for (int i = 0; i < 5; i++) {
-            JSONObject json = pack.apiCaller.getCardFromApi();
+            JSONObject json = apiCaller.getCardFromApi();
             if (json.getString("type").equals("Spell Card"))
                 pack.cards.add(new SpellCardFactory().createCard(json));
             else if (json.getString("type").equals("Trap Card"))
@@ -41,10 +44,10 @@ public class NewPack extends PackState{
             pack.baseDecorator = new MonsterDecorator(pack.logTemplate);
         } else if (card instanceof SpellCard) {
             pack.logTemplate = new SpellLogTemplate();
-            pack.baseDecorator = new MonsterDecorator(pack.logTemplate);
+            pack.baseDecorator = new SpellDecorator(pack.logTemplate);
         } else if (card instanceof TrapCard) {
             pack.logTemplate = new TrapLogTemplate();
-            pack.baseDecorator = new MonsterDecorator(pack.logTemplate);
+            pack.baseDecorator = new TrapDecorator(pack.logTemplate);
         }
         pack.baseDecorator.logCard(card);
 
